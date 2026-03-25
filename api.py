@@ -34,8 +34,8 @@ def optimize(df):
     routing.AddDimension(t, 0, 9999999, True, "D")
     dim = routing.GetDimensionOrDie("D")
 
-    for id_val in df["ID"].unique():
-        g = df[df["ID"] == id_val]
+    for id_val in df["orderID"].unique():
+        g = df[df["orderID"] == id_val]
         if len(g) == 2:
             f = g[g["type"] == "from"].index[0]
             to = g[g["type"] == "to"].index[0]
