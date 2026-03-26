@@ -121,7 +121,7 @@ async def run(req: Request):
         for i, idx in enumerate(order, 1):
             r = df.iloc[idx]
             rows.append({
-                "RowID": r["rowId"],
+                "ID": r["rowId"],
                 "順番": i
             })
 
