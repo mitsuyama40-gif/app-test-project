@@ -27,7 +27,7 @@ def haversine(a, b):
     return int(2 * R * math.asin(math.sqrt(h)))
 
 # -----------------------------
-# 距離行列（爆速）
+# 距離行列
 # -----------------------------
 def build_matrix(coords):
     n = len(coords)
@@ -120,6 +120,10 @@ async def run(req: Request):
 
     data = await req.json()
     df = pd.DataFrame(data["locations"])
+
+    if df.empty:
+        print("データなし")
+        return {"ok": True, "msg": "no data"}
 
     order = optimize(df)
 
